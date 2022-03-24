@@ -1,0 +1,30 @@
+.button{
+    -fx-background-color: #818080;
+    -fx-text-fill: white;
+
+}
+
+.root{
+    -fx-background-color: #870D0D;
+    -fx-font-family: "Open Sauce Sans";
+    -fx-font-size: 13;
+}
+
+#clicked{
+    -fx-background-color: #222222;
+    -fx-padding: 6 ;
+}
+
+#topbar{
+    -fx-background-color: #555555;
+}
+
+#whitebg{
+    -fx-background-color: #FFFFFF;
+}
+
+#inputfield{
+    -fx-background-color: transparent;
+    -fx-border-color: #870D0D;
+    -fx-border-width: 0px 0px 2px 0px;
+}

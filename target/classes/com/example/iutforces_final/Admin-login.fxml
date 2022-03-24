@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--<?import de.jensd.fx.glyphs.GlyphsStack?>
+<?import de.jensd.fx.glyphs.control.GlyphCheckBox?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>-->
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="538.0" prefWidth="738.0" stylesheets="@../../../style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.iutforces_final.HelloController">
+   <children>
+      <Label id="inputfield" layoutX="87.0" layoutY="308.0" style="-fx-border-color: #FFFFFF;" text="Admin Login System" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="52.0" fitWidth="246.0" layoutX="64.0" layoutY="243.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@iutforces.png" />
+         </image>
+      </ImageView>
+      <AnchorPane id="whitebg" layoutX="373.0" layoutY="-8.0" prefHeight="730.0" prefWidth="450.0">
+         <children>
+            <TextField id="inputfield" layoutX="140.0" layoutY="183.0" promptText="Username" />
+            <PasswordField id="inputfield" layoutX="140.0" layoutY="222.0" promptText="Password" />
+            <Button fx:id="ad_login" layoutX="118.0" layoutY="293.0" mnemonicParsing="false" onAction="#admin_login" prefHeight="36.0" prefWidth="80.0" text="Login" />
+<!--            <FontAwesomeIconView fill="#870d0d" glyphName="USER" layoutX="99.0" layoutY="207.0" size="20" />
+            <FontAwesomeIconView fill="#870d0d" glyphName="KEY" layoutX="99.0" layoutY="248.0" size="20" />
+            <FontAwesomeIconView fill="#870d0d" glyphName="USERS" layoutX="171.0" layoutY="134.0" size="40" />-->
+            <Label layoutX="118.0" layoutY="355.0" style="-fx-text-fill: #870D0D;" text="Don't have an account yet?" />
+            <Hyperlink fx:id="ad_signup_hyp" layoutX="275.0" layoutY="351.0" onAction="#to_ad_signup" style="-fx-text-fill: #870d0d;" text="Sign up!" />
+            <Button fx:id="back" layoutX="232.0" layoutY="294.0" mnemonicParsing="false" onAction="#to_home" prefHeight="33.0" prefWidth="80.0" text="Go Back" />
+         </children>
+      </AnchorPane>
+<!--      <GlyphCheckBox />
+      <GlyphsStack />-->
+   </children>
+</AnchorPane>
