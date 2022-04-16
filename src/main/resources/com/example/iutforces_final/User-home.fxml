@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="538.0" prefWidth="738.0" stylesheets="@../../../style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.iutforces_final.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="538.0" prefWidth="738.0" stylesheets="@../../../style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.iutforces_final.UserHomeController">
    <children>
       <AnchorPane id="topbar" layoutX="-2.0" prefHeight="40.0" prefWidth="744.0" stylesheets="@../../../style.css">
          <children>
@@ -81,8 +81,8 @@
             </Group>
          </children>
       </AnchorPane>
-      <Button fx:id="logout" layoutX="344.0" layoutY="436.0" mnemonicParsing="false" onAction="#to_logout" text="Log out" />
-      <Label fx:id="course_code" alignment="CENTER" layoutX="119.0" layoutY="218.0" prefHeight="43.0" prefWidth="493.0" text="It will be updated soon" textFill="WHITE">
+     <!-- <Button fx:id="logout" layoutX="344.0" layoutY="436.0" mnemonicParsing="false" onAction="#to_logout" text="Log out" />
+     --> <Label fx:id="course_code" alignment="CENTER" layoutX="119.0" layoutY="218.0" prefHeight="43.0" prefWidth="493.0" text="It will be updated soon" textFill="WHITE">
          <font>
             <Font name="Consolas" size="36.0" />
          </font>

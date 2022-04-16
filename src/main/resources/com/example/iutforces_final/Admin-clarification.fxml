@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="538.0" prefWidth="738.0" stylesheets="@../../../style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.iutforces_final.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="538.0" prefWidth="738.0" stylesheets="@../../../style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.iutforces_final.AdminClarificationController">
    <children>
       <AnchorPane id="topbar" layoutX="-2.0" prefHeight="40.0" prefWidth="744.0" stylesheets="@../../../style.css">
          <children>
@@ -60,7 +60,7 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>
                   </Button>
-                  <Button id="clicked"  fx:id="ad_clar" layoutX="527.0" layoutY="2.0" mnemonicParsing="false" onAction="#to_ad_clar" text="CLARIFICATION">
+                  <Button id="clicked" fx:id="ad_clar" layoutX="527.0" layoutY="2.0" mnemonicParsing="false" onAction="#to_ad_clar" text="CLARIFICATION">
                      <font>
                         <Font size="15.0" />
                      </font>
