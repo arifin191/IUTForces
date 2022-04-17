@@ -21,7 +21,7 @@ public class UserLoginController {
 
     @FXML
     private TextField uname, pass;
-
+    private String passw = "12345";
     @FXML
     Button us_login,ad_signup, back;
 
@@ -31,7 +31,7 @@ public class UserLoginController {
     private Hyperlink  ad_signup_hyp;
     public void verify(String uname, String pass) {
         try {
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/tst", "root", "123581321345589");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/tst", "root", passw);
             Statement statement = connection.createStatement();
             uname = "'" + uname + "'";
             ResultSet resultSet = statement.executeQuery("select * from `tst`.`poeple` where name = " + uname);

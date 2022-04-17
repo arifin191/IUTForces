@@ -1,2 +1,7 @@
 target
 .idea
+io
+temporary
+*.in
+*.out
+*.exe
