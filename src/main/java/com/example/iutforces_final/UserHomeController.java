@@ -3,22 +3,68 @@ package com.example.iutforces_final;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ResourceBundle;
 
-public class UserHomeController {
+public class UserHomeController implements Initializable {
     @FXML
     private Button us_home, us_probs, us_status, us_submission, us_stand, us_submit, us_clar, us_tut, us_login, logout;
 
-    public void to_us_home(ActionEvent event) throws IOException
+    @FXML
+    private Label cuid, suid, tuname;
+
+    public void readfromdb_and_set() {
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/tst", "root", "123581321345589");
+            Statement statement = connection.createStatement();
+
+            String st = "select * from `tst`.`cinfo`";
+            ResultSet resultSet = statement.executeQuery(st);
+            int itr = 1;
+            String cid = "", sid = "", tname = "";
+            while (resultSet.next() && itr > 0) {
+                --itr;
+                 cid = resultSet.getString("cid");
+                 sid = resultSet.getString("sid");
+                 tname = resultSet.getString("teacher");
+            }
+            //System.out.println(cid);
+            //System.out.println(sid);
+            //System.out.println(tname);
+            cuid.setText(cid);
+            suid.setText(sid);
+            tuname.setText(tname);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public void to_us_home() throws IOException
     {
+
         Parent root = FXMLLoader.load(getClass().getResource("User-home.fxml"));
         Stage stage = (Stage) us_home.getScene().getWindow();
         stage.setScene(new Scene(root, 800, 720));
+
+
+    }
+
+    public void dummy() throws IOException {
+        to_us_home();
+        to_us_home();
     }
     public void to_us_probs(ActionEvent event) throws IOException
     {
@@ -69,5 +115,9 @@ public class UserHomeController {
         stage.setScene(new Scene(root, 800, 720));
     }
 
-    
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        this.readfromdb_and_set();
+    }
 }

@@ -81,23 +81,17 @@
             </Group>
          </children>
       </AnchorPane>
-     <!-- <Button fx:id="logout" layoutX="344.0" layoutY="436.0" mnemonicParsing="false" onAction="#to_logout" text="Log out" />
-     --> <Label fx:id="course_code" alignment="CENTER" layoutX="119.0" layoutY="218.0" prefHeight="43.0" prefWidth="493.0" text="It will be updated soon" textFill="WHITE">
+      <Label fx:id="cuid" alignment="CENTER" layoutX="266.0" layoutY="224.0" prefHeight="43.0" prefWidth="206.0" text="" textFill="WHITE">
          <font>
             <Font name="Consolas" size="36.0" />
          </font>
       </Label>
-      <Label fx:id="instructor" layoutX="81.0" layoutY="296.0" prefHeight="43.0" prefWidth="611.0" textFill="WHITE">
+      <Label fx:id="suid" alignment="CENTER" layoutX="255.0" layoutY="280.0" prefHeight="43.0" prefWidth="227.0" text="" textFill="WHITE">
          <font>
             <Font name="Consolas" size="36.0" />
          </font>
       </Label>
-      <Label fx:id="date" layoutX="222.0" layoutY="339.0" prefHeight="43.0" prefWidth="305.0" textFill="WHITE">
-         <font>
-            <Font name="Consolas" size="36.0" />
-         </font>
-      </Label>
-      <Label fx:id="session" layoutX="223.0" layoutY="257.0" prefHeight="43.0" prefWidth="306.0" textFill="WHITE">
+      <Label fx:id="tuname" alignment="CENTER" layoutX="273.0" layoutY="332.0" prefHeight="43.0" prefWidth="192.0" text="" textFill="WHITE">
          <font>
             <Font name="Consolas" size="36.0" />
          </font>

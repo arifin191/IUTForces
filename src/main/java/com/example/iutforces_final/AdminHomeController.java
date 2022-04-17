@@ -10,6 +10,10 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 public class AdminHomeController {
     @FXML
@@ -18,11 +22,33 @@ public class AdminHomeController {
     @FXML
     private TextField coursefield, sessionfield, instructorfield;
 
+    public String f(String s) {
+        s = "'" + s + "'";
+        return s;
+    }
+
+    public void send_to_db(String cid, String sid, String ins) {
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/tst", "root", "123581321345589");
+            Statement statement = connection.createStatement();
+            cid = f(cid);
+            sid = f(sid);
+            ins = f(ins);
+
+            String st = "insert into `tst`.`cinfo` (cid, sid, teacher) values (" + cid + "," + sid + "," + ins + ");";
+            System.out.println(st);
+            statement.executeUpdate(st);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public void submitinfo(ActionEvent event) throws IOException
     {
         //System.out.println(coursefield.getText());
         //System.out.println(sessionfield.getText());
         //System.out.println(instructorfield.getText());
+        send_to_db(coursefield.getText(), sessionfield.getText(), instructorfield.getText());
     }
 
     public void to_ad_home(ActionEvent event) throws IOException
