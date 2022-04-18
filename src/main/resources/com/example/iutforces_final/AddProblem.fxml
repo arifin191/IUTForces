@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../../../style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.iutforces_final.AddProblemController">
+   <children>
+      <Button fx:id="problem_btn" alignment="CENTER" contentDisplay="CENTER" layoutX="206.0" layoutY="62.0" mnemonicParsing="false" onAction="#chooseproblem" prefHeight="27.0" prefWidth="210.0" text="Choose Problem Statement(*.pdf)" />
+      <Button fx:id="input_btn" alignment="CENTER" contentDisplay="CENTER" layoutX="206.0" layoutY="101.0" mnemonicParsing="false" onAction="#chooseinput" prefHeight="27.0" prefWidth="210.0" text="Add Input(*.txt)" />
+      <Button fx:id="output_btn" alignment="CENTER" contentDisplay="CENTER" layoutX="206.0" layoutY="141.0" mnemonicParsing="false" onAction="#chooseoutput" prefHeight="27.0" prefWidth="210.0" text="Add Output (*.txt)" />
+      <Label layoutX="85.0" layoutY="234.0" text="Problem Name:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="86.0" layoutY="265.0" text="Time Limit:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="88.0" layoutY="297.0" text="Memory Limit:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="name_field" layoutX="208.0" layoutY="229.0" prefHeight="27.0" prefWidth="210.0" />
+      <TextField fx:id="time_field" layoutX="208.0" layoutY="261.0" prefHeight="27.0" prefWidth="210.0" />
+      <TextField fx:id="memory_field" layoutX="208.0" layoutY="292.0" prefHeight="27.0" prefWidth="210.0" />
+      <Button fx:id="submit" layoutX="285.0" layoutY="334.0" mnemonicParsing="false" onAction="#setSubmit" text="Submit" />
+      <TextField fx:id="id_field" layoutX="208.0" layoutY="194.0" prefHeight="27.0" prefWidth="210.0" />
+      <Label layoutX="86.0" layoutY="199.0" text="Problem ID:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

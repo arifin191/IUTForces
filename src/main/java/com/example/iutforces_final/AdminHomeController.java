@@ -18,7 +18,7 @@ import java.sql.Statement;
 public class AdminHomeController {
     @FXML
     private Button submit, ad_home, ad_myprob, ad_probs, ad_manage,ad_stand, ad_status, ad_clar, ad_tut, back ;
-
+    private String passw = "12345";
     @FXML
     private TextField coursefield, sessionfield, instructorfield;
 
@@ -29,7 +29,7 @@ public class AdminHomeController {
 
     public void send_to_db(String cid, String sid, String ins) {
         try {
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/tst", "root", "123581321345589");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/tst", "root", passw);
             Statement statement = connection.createStatement();
             cid = f(cid);
             sid = f(sid);

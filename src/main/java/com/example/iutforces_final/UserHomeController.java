@@ -21,13 +21,13 @@ import java.util.ResourceBundle;
 public class UserHomeController implements Initializable {
     @FXML
     private Button us_home, us_probs, us_status, us_submission, us_stand, us_submit, us_clar, us_tut, us_login, logout;
-
+    private String passw="12345";
     @FXML
     private Label cuid, suid, tuname;
 
     public void readfromdb_and_set() {
         try {
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/tst", "root", "123581321345589");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/tst", "root", passw);
             Statement statement = connection.createStatement();
 
             String st = "select * from `tst`.`cinfo`";

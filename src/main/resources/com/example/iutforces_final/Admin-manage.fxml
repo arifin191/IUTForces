@@ -3,6 +3,10 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -80,5 +84,31 @@
             </Group>
          </children>
       </AnchorPane>
+      <ImageView fitHeight="47.0" fitWidth="53.0" layoutX="107.0" layoutY="411.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@add.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="64.0" fitWidth="61.0" layoutX="346.0" layoutY="404.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@trash-icon.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="40.0" fitWidth="41.0" layoutX="567.0" layoutY="415.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@edit.png" />
+         </image>
+      </ImageView>
+      <TableView layoutX="-1.0" layoutY="38.0" prefHeight="352.0" prefWidth="738.0">
+        <columns>
+          <TableColumn prefWidth="122.40002751350403" text="Problem ID" />
+          <TableColumn prefWidth="333.59996032714844" text="Problem Name" />
+            <TableColumn prefWidth="114.40008544921875" text="Time Limit" />
+            <TableColumn prefWidth="159.20001220703125" text="Memory Limit" />
+        </columns>
+      </TableView>
+      <Button fx:id="add" layoutX="84.0" layoutY="466.0" mnemonicParsing="false" onAction="#to_addProblem" text="Add Problem" />
+      <Button fx:id="del" layoutX="318.0" layoutY="466.0" mnemonicParsing="false" text="Remove Problem" />
+      <Button fx:id="edit" layoutX="538.0" layoutY="466.0" mnemonicParsing="false" text="Edit Problem" />
    </children>
 </AnchorPane>

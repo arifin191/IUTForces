@@ -91,7 +91,7 @@
             <Font name="Consolas" size="36.0" />
          </font>
       </Label>
-      <Label fx:id="tuname" alignment="CENTER" layoutX="273.0" layoutY="332.0" prefHeight="43.0" prefWidth="192.0" text="" textFill="WHITE">
+      <Label fx:id="tuname" alignment="CENTER" layoutX="142.0" layoutY="332.0" prefHeight="43.0" prefWidth="441.0" text="" textFill="WHITE">
          <font>
             <Font name="Consolas" size="36.0" />
          </font>

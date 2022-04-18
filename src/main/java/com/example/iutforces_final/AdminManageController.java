@@ -6,13 +6,28 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import org.controlsfx.control.action.ActionGroup;
 
 import java.io.IOException;
 
 public class AdminManageController {
     @FXML
     private Button save, ad_home, ad_myprob, ad_probs, ad_manage,ad_stand, ad_status, ad_clar, ad_tut, back ;
+
+    @FXML
+    private Button add,del, edit;
+
+    public void to_addProblem(ActionEvent event) throws IOException
+    {
+        Parent root = FXMLLoader.load(getClass().getResource("AddProblem.fxml"));
+        Stage stage = new Stage();
+        add.getScene().getWindow();
+        stage.setTitle("Add Problem");
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
 
     public void to_ad_home(ActionEvent event) throws IOException
     {
