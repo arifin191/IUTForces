@@ -82,12 +82,14 @@
             </Group>
          </children>
       </AnchorPane>
-      <TableView fx:id="table_problemset" layoutX="-3.0" layoutY="40.0" prefHeight="498.0" prefWidth="738.0" style="-fx-background-color: #870D0D;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="40.0">
+      <TableView fx:id="table_problemset" layoutX="2.0" layoutY="40.0" prefHeight="410.0" prefWidth="738.0" style="-fx-background-color: #870D0D;" AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="40.0">
         <columns>
           <TableColumn fx:id="col_pid" prefWidth="178.40002745389938" text="Problem ID" />
-          <TableColumn fx:id="col_pname" prefWidth="275.99998474121094" text="Problem Name" />
-            <TableColumn fx:id="col_author" prefWidth="283.20001220703125" text="Problem Author" />
+          <TableColumn fx:id="col_pname" prefWidth="191.19993591308594" text="Problem Name" />
+            <TableColumn fx:id="col_time" prefWidth="178.39996337890625" text="Time Limit" />
+            <TableColumn fx:id="col_memory" prefWidth="186.39996337890625" text="Memory Limit" />
         </columns>
       </TableView>
+      <Button fx:id="download" layoutX="361.0" layoutY="465.0" mnemonicParsing="false" onAction="#setDownload" text="Download PDF" />
    </children>
 </AnchorPane>

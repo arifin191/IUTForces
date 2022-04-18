@@ -114,6 +114,12 @@ public class UserHomeController implements Initializable {
         Stage stage = (Stage) us_stand.getScene().getWindow();
         stage.setScene(new Scene(root, 800, 720));
     }
+    public void loggingout(ActionEvent event) throws IOException
+    {
+        Parent root = FXMLLoader.load(getClass().getResource("program-home.fxml"));
+        Stage stage = (Stage) logout.getScene().getWindow();
+        stage.setScene(new Scene(root, 800, 720));
+    }
 
 
     @Override

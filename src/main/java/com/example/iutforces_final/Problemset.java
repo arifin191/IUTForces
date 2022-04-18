@@ -1,14 +1,15 @@
 package com.example.iutforces_final;
 
 public class Problemset {
-    static  private Integer problemID;
-    static private String problem_name , problem_author;
+      private Integer problemID, time_limit, memory_limit;
+     private String problem_name ;
 
 
-    public Problemset(Integer pID, String pname, String pauthor) {
+    public Problemset(Integer pID, String pname, Integer time, Integer memory) {
         problemID = pID;
         problem_name = pname;
-        problem_author = pauthor;
+        time_limit = time;
+        memory_limit = memory;
     }
 
     public void setProblemID(int pid)
@@ -19,10 +20,11 @@ public class Problemset {
     {
         this.problem_name=p_name;
     }
-    public void setProblem_author(String p_author)
+    public void setTime_limit(int time)
     {
-        this.problem_author = p_author;
+        this.time_limit = time;
     }
+    public void setMemory_limit(int memory) { this.memory_limit = memory;}
 
     public int getProblemID()
     {
@@ -32,9 +34,13 @@ public class Problemset {
     {
         return problem_name;
     }
-    public String getProblem_author()
+    public int getTime_limit()
     {
-        return problem_author;
+        return time_limit;
+    }
+    public int getMemory_limit()
+    {
+        return memory_limit;
     }
 
 

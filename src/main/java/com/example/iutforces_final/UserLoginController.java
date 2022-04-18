@@ -22,7 +22,7 @@ public class UserLoginController {
 
     @FXML
     private TextField uname, pass;
-    private String passw = "123581321345589";
+    private String passw = "12345";
     @FXML
     Button us_login,ad_signup, back;
 
@@ -61,6 +61,7 @@ public class UserLoginController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        ret =0;
         return ret;
     }
 
@@ -87,7 +88,7 @@ public class UserLoginController {
 
     public void to_us_signup(ActionEvent event) throws IOException
     {
-        Parent root = FXMLLoader.load(getClass().getResource("Admin-signup.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("User-signup.fxml"));
         Stage stage = (Stage) us_signup_hyp.getScene().getWindow();
         stage.setScene(new Scene(root, 800, 720));
     }
