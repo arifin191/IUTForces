@@ -16,99 +16,91 @@
          <children>
             <Group id="topbar" layoutY="3.0">
                <children>
-                  <Button fx:id="ad_home" layoutX="19.0" layoutY="1.0" mnemonicParsing="false" onAction="#to_ad_home" text="HOME">
+                  <Button fx:id="ad_home" layoutX="19.0" layoutY="1.0" mnemonicParsing="false" onAction="#to_ad_home"
+                          text="HOME">
                      <font>
-                        <Font size="15.0" />
+                        <Font size="15.0"/>
                      </font>
                      <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
                      </padding>
                   </Button>
-                  <Button fx:id="ad_probs" layoutX="77.0" layoutY="1.0" mnemonicParsing="false" onAction="#to_ad_probset" text="PROBLEMSET">
+                  <Button fx:id="ad_probs" layoutX="89.0" layoutY="-1.0" mnemonicParsing="false" onAction="#to_ad_probset"
+                          text="PROBLEMSET">
                      <font>
-                        <Font size="15.0" />
+                        <Font size="15.0"/>
                      </font>
                      <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
                      </padding>
                   </Button>
-                  <Button fx:id="ad_myprob" layoutX="182.0" layoutY="2.0" mnemonicParsing="false" onAction="#to_ad_myprob" text="MY PROBLEMS">
+                  <Button id="clicked" fx:id="ad_manage" layoutX="203.0" mnemonicParsing="false" onAction="#to_ad_manage" text="MANAGE">
                      <font>
-                        <Font size="15.0" />
+                        <Font size="15.0"/>
                      </font>
                      <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
                      </padding>
                   </Button>
-                  <Button id="clicked" fx:id="ad_manage" layoutX="292.0" layoutY="1.0" mnemonicParsing="false" onAction="#to_ad_manage" text="MANAGE">
+                  <Button fx:id="ad_stand" layoutX="360.0" mnemonicParsing="false" onAction="#to_ad_stand"
+                          prefHeight="31.0" prefWidth="105.0" text="STANDINGS">
                      <font>
-                        <Font size="15.0" />
+                        <Font size="15.0"/>
                      </font>
                      <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
                      </padding>
                   </Button>
-                  <Button fx:id="ad_stand" layoutX="433.0" layoutY="1.0" mnemonicParsing="false" onAction="#to_ad_stand" text="STANDINGS">
+                  <Button fx:id="ad_status" layoutX="290.0" layoutY="1.0" mnemonicParsing="false" onAction="#to_ad_status"
+                          text="STATUS">
                      <font>
-                        <Font size="15.0" />
+                        <Font size="15.0"/>
                      </font>
                      <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
                      </padding>
                   </Button>
-                  <Button fx:id="ad_status" layoutX="362.0" layoutY="1.0" mnemonicParsing="false" onAction="#to_ad_status" text="STATUS">
+                  <Button fx:id="ad_clar" layoutX="473.0" layoutY="-1.0" mnemonicParsing="false"
+                          onAction="#to_ad_clar" prefHeight="34.0" prefWidth="131.0" text="CLARIFICATION">
                      <font>
-                        <Font size="15.0" />
+                        <Font size="15.0"/>
                      </font>
                      <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
                      </padding>
                   </Button>
-                  <Button fx:id="ad_clar" layoutX="527.0" layoutY="2.0" mnemonicParsing="false" onAction="#to_ad_clar" text="CLARIFICATION">
+                  <Button fx:id="ad_tut" layoutX="619.0" layoutY="1.0" mnemonicParsing="false" onAction="#to_ad_tut"
+                          prefHeight="31.0" prefWidth="126.0" text="TUTORIAL">
                      <font>
-                        <Font size="15.0" />
+                        <Font size="15.0"/>
                      </font>
                      <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </padding>
-                  </Button>
-                  <Button fx:id="ad_tut" layoutX="653.0" layoutY="1.0" mnemonicParsing="false" onAction="#to_ad_tut" text="TUTORIAL">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                     <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
                      </padding>
                   </Button>
                </children>
             </Group>
          </children>
       </AnchorPane>
-      <ImageView fitHeight="47.0" fitWidth="53.0" layoutX="107.0" layoutY="411.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="47.0" fitWidth="53.0" layoutX="213.0" layoutY="408.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@add.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="64.0" fitWidth="61.0" layoutX="346.0" layoutY="404.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="64.0" fitWidth="61.0" layoutX="475.0" layoutY="401.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@trash-icon.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="40.0" fitWidth="41.0" layoutX="567.0" layoutY="415.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@edit.png" />
-         </image>
-      </ImageView>
-      <TableView layoutX="-1.0" layoutY="38.0" prefHeight="352.0" prefWidth="738.0">
+      <TableView fx:id="table_problemset" layoutX="-1.0" layoutY="38.0" prefHeight="352.0" prefWidth="738.0">
         <columns>
-          <TableColumn prefWidth="122.40002751350403" text="Problem ID" />
-          <TableColumn prefWidth="333.59996032714844" text="Problem Name" />
-            <TableColumn prefWidth="114.40008544921875" text="Time Limit" />
-            <TableColumn prefWidth="159.20001220703125" text="Memory Limit" />
+          <TableColumn fx:id="col_pid" prefWidth="122.40002751350403" text="Problem ID" />
+          <TableColumn fx:id="col_pname" prefWidth="333.59996032714844" text="Problem Name" />
+            <TableColumn fx:id="col_time" prefWidth="114.40008544921875" text="Time Limit" />
+            <TableColumn fx:id="col_memory" prefWidth="159.20001220703125" text="Memory Limit" />
         </columns>
       </TableView>
-      <Button fx:id="add" layoutX="84.0" layoutY="466.0" mnemonicParsing="false" onAction="#to_addProblem" text="Add Problem" />
-      <Button fx:id="del" layoutX="318.0" layoutY="466.0" mnemonicParsing="false" text="Remove Problem" />
-      <Button fx:id="edit" layoutX="538.0" layoutY="466.0" mnemonicParsing="false" text="Edit Problem" />
+      <Button fx:id="add" layoutX="189.0" layoutY="463.0" mnemonicParsing="false" onAction="#to_addProblem" text="Add Problem" />
+      <Button fx:id="del" layoutX="447.0" layoutY="463.0" mnemonicParsing="false" onAction="#delete" text="Remove Problem" />
    </children>
 </AnchorPane>

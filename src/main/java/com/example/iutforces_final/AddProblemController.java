@@ -10,6 +10,8 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.IOException;
+import java.sql.SQLException;
 
 public class AddProblemController {
 
@@ -39,21 +41,26 @@ public class AddProblemController {
         System.out.println(name);
         return name;
     }
+    FileChooser prob = new FileChooser();
+    FileChooser in = new FileChooser();
+    FileChooser out = new FileChooser();
+
+    String problem = "";
 
     public void chooseproblem(ActionEvent event) {
-        FileChooser prob = new FileChooser();
+
         prob.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("PDF Files", "*.pdf"));
 
         File f1 = prob.showOpenDialog(null);
         if (f1 != null) {
-            String problem = String.valueOf(f1);
+            problem = String.valueOf(f1);
             String name = getname(problem);
             problem_btn.setText(name);
 
         }
     }
     public void chooseinput(ActionEvent event) {
-        FileChooser in = new FileChooser();
+
         in.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Text Files", "*.txt"));
 
         File f2 = in.showOpenDialog(null);
@@ -64,7 +71,7 @@ public class AddProblemController {
         }
     }
     public void chooseoutput(ActionEvent event) {
-        FileChooser out = new FileChooser();
+
         out.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Text Files", "*.txt"));
 
         File f3 = out.showOpenDialog(null);
@@ -74,12 +81,9 @@ public class AddProblemController {
         }
     }
 
-    public void setSubmit(ActionEvent event)
-    {
-        System.out.println(name_field.getText());
-        System.out.println(time_field.getText());
-        System.out.println(memory_field.getText());
-        System.out.println(id_field.getText());
+    public void setSubmit(ActionEvent event) throws SQLException, IOException {
+        pdfs PDFS = new pdfs(problem, name_field.getText(), Integer.parseInt(id_field.getText()), Integer.parseInt(time_field.getText()), Integer.parseInt(memory_field.getText()));
+        PDFS.writepdfs();
         ((Node)event.getSource()).getScene().getWindow().hide();
     }
 }

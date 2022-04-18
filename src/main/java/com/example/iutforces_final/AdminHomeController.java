@@ -17,8 +17,8 @@ import java.sql.Statement;
 
 public class AdminHomeController {
     @FXML
-    private Button submit, ad_home, ad_myprob, ad_probs, ad_manage,ad_stand, ad_status, ad_clar, ad_tut, back ;
-    private String passw = "123581321345589";
+    private Button submit, ad_home, ad_myprob, ad_probs, ad_manage,ad_stand, ad_status, ad_clar, ad_tut, logout ;
+    private String passw = "12345";
     @FXML
     private TextField coursefield, sessionfield, instructorfield;
 
@@ -31,12 +31,14 @@ public class AdminHomeController {
         try {
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/tst", "root", passw);
             Statement statement = connection.createStatement();
+            Statement clear = connection.createStatement();
             cid = f(cid);
             sid = f(sid);
             ins = f(ins);
-
+            String ct="truncate `tst`.`cinfo`";
+            clear.executeUpdate(ct);
             String st = "insert into `tst`.`cinfo` (cid, sid, teacher) values (" + cid + "," + sid + "," + ins + ");";
-            System.out.println(st);
+            //System.out.println(st);
             statement.executeUpdate(st);
         } catch (Exception e) {
             e.printStackTrace();
@@ -107,4 +109,10 @@ public class AdminHomeController {
         stage.setScene(new Scene(root, 800, 720));
     }
 
+    public void loggingout(ActionEvent event) throws IOException
+    {
+        Parent root = FXMLLoader.load(getClass().getResource("program-home.fxml"));
+        Stage stage = (Stage) logout.getScene().getWindow();
+        stage.setScene(new Scene(root, 800, 720));
+    }
 }

@@ -34,7 +34,9 @@ public class AdminProblemsetController implements Initializable {
     private TableColumn <Problemset, String> col_pname;
 
     @FXML
-    private TableColumn <Problemset, String> col_author;
+    private TableColumn <Problemset, Integer> col_time;
+    @FXML
+    private TableColumn <Problemset, Integer> col_memory;
 
     String query = null;
     Connection connection = null;
@@ -109,11 +111,12 @@ public class AdminProblemsetController implements Initializable {
         {
             Integer i = resultSet.getInt("problemID");
             String s1 = resultSet.getString("problem_name");
-            String s2 = resultSet.getString("problem_author");
+            Integer s2 = resultSet.getInt("time_limit");
+            Integer s3 = resultSet.getInt("memory_limit");
             //System.out.println(i);
             //System.out.println(s1);
             //System.out.println(s2);
-            problemList.add(new Problemset(i, s1, s2));
+            problemList.add(new Problemset(i, s1, s2, s3));
             table_problemset.setItems(problemList);
         }
 
@@ -139,6 +142,7 @@ public class AdminProblemsetController implements Initializable {
 
         col_pid.setCellValueFactory(new PropertyValueFactory<>("problemID"));
         col_pname.setCellValueFactory(new PropertyValueFactory<>("problem_name"));
-        col_author.setCellValueFactory(new PropertyValueFactory<>("problem_author"));
+        col_time.setCellValueFactory(new PropertyValueFactory<>("time_limit"));
+        col_memory.setCellValueFactory(new PropertyValueFactory<>("memory_limit"));
     }
 }

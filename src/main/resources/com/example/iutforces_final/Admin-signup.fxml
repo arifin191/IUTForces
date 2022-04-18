@@ -30,7 +30,7 @@
          <children>
             <TextField id="inputfield" layoutX="140.0" layoutY="183.0" promptText="Username" />
             <PasswordField id="inputfield" layoutX="140.0" layoutY="222.0" promptText="Password" />
-            <Button fx:id="ad_login" layoutX="118.0" layoutY="332.0" mnemonicParsing="false" onAction="#admin_login" prefHeight="36.0" prefWidth="80.0" text="Sign Up" />
+            <Button fx:id="ad_login" layoutX="118.0" layoutY="332.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="80.0" text="Sign Up" />
 <!--            <FontAwesomeIconView fill="#870d0d" glyphName="USER" layoutX="99.0" layoutY="207.0" size="20" />
             <FontAwesomeIconView fill="#870d0d" glyphName="KEY" layoutX="99.0" layoutY="248.0" size="20" />
             <FontAwesomeIconView fill="#870d0d" glyphName="USERS" layoutX="171.0" layoutY="134.0" size="40" />-->

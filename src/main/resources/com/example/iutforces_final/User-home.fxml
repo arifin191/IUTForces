@@ -96,5 +96,6 @@
             <Font name="Consolas" size="36.0" />
          </font>
       </Label>
+      <Button fx:id="logout" layoutX="363.0" layoutY="446.0" mnemonicParsing="false" onAction="#loggingout" text="Log Out" />
    </children>
 </AnchorPane>

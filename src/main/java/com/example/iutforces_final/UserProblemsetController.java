@@ -24,18 +24,23 @@ public class UserProblemsetController implements Initializable {
     @FXML
     private Button us_home, us_probs, us_status, us_submission, us_stand, us_submit, us_clar, us_tut, us_login, logout;
 
+    @FXML private Button download;
     private String passw="12345";
     @FXML
-    private TableView <Problemset> table_problemset;
+    private TableView<Problemset> table_problemset;
 
     @FXML
-    private TableColumn <Problemset, Integer> col_pid;
+    private TableColumn<Problemset, Integer> col_pid;
 
     @FXML
     private TableColumn <Problemset, String> col_pname;
 
     @FXML
-    private TableColumn <Problemset, String> col_author;
+    private TableColumn <Problemset, Integer> col_time;
+    @FXML
+    private TableColumn <Problemset, Integer> col_memory;
+
+    ObservableList<Problemset> problemList = FXCollections.observableArrayList();
 
     String query = null;
     Connection connection = null;
@@ -106,13 +111,11 @@ public class UserProblemsetController implements Initializable {
 
         while (resultSet.next())
         {
-            Integer i = resultSet.getInt("problemID");
-            String s1 = resultSet.getString("problem_name");
-            String s2 = resultSet.getString("problem_author");
-            //System.out.println(i);
-            //System.out.println(s1);
-            //System.out.println(s2);
-            problemList.add(new Problemset(i, s1, s2));
+            problemList.add(new Problemset(
+                    resultSet.getInt("problemID"),
+                    resultSet.getString("problem_name"),
+                    resultSet.getInt("time_limit"),
+                    resultSet.getInt("memory_limit")));
             table_problemset.setItems(problemList);
         }
 
@@ -120,7 +123,6 @@ public class UserProblemsetController implements Initializable {
 
 
 
-    ObservableList <Problemset> problemList = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -138,6 +140,20 @@ public class UserProblemsetController implements Initializable {
 
         col_pid.setCellValueFactory(new PropertyValueFactory<>("problemID"));
         col_pname.setCellValueFactory(new PropertyValueFactory<>("problem_name"));
-        col_author.setCellValueFactory(new PropertyValueFactory<>("problem_author"));
+        col_time.setCellValueFactory(new PropertyValueFactory<>("time_limit"));
+        col_memory.setCellValueFactory(new PropertyValueFactory<>("memory_limit"));
+    }
+
+    public void setDownload(ActionEvent event) throws SQLException, IOException {
+        Problemset problem = table_problemset.getSelectionModel().getSelectedItem();
+        //connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/tst", "root", passw);
+       // System.out.println(problem.getProblemID());
+        pdfs PDF = new pdfs("", problem.getProblem_name(), problem.getProblemID(),  0, 0);
+        PDF.readpdfs();
+        //String query = "select pdf from `tst`.`problemset` where problemID ="+problem.getProblemID();
+        //PreparedStatement preparedStatement = connection.prepareStatement(query);
+        //preparedStatement.execute();
+        refreshTable();
+
     }
 }

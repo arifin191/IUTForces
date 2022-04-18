@@ -22,7 +22,7 @@ public class AdminLoginController {
 
     @FXML
     private TextField uname, pass;
-    private String passw = "123581321345589";
+    private String passw = "12345";
     @FXML
     Button ad_login,ad_signup, back;
 
@@ -64,6 +64,7 @@ public class AdminLoginController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        ret =0;
         return ret;
     }
 
@@ -73,7 +74,7 @@ public class AdminLoginController {
         Stage stage = (Stage) ad_login_hyp.getScene().getWindow();
         stage.setScene(new Scene(root, 800, 720));
         System.out.println(status);
-        if (status == 2) invalid.setText("WRONG PASS BITCH");
+        if (status == 2) invalid.setText(   "WRONG PASS BITCH");
         else if (status == 1) invalid.setText("NO FIELD CAN BE EMPTY");
         System.out.println(status);
     }*/

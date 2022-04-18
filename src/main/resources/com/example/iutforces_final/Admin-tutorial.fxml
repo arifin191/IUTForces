@@ -12,68 +12,66 @@
          <children>
             <Group id="topbar" layoutY="3.0">
                <children>
-                  <Button fx:id="ad_home" layoutX="19.0" layoutY="1.0" mnemonicParsing="false" onAction="#to_ad_home" text="HOME">
+                  <Button fx:id="ad_home" layoutX="19.0" layoutY="1.0" mnemonicParsing="false" onAction="#to_ad_home"
+                          text="HOME">
                      <font>
-                        <Font size="15.0" />
+                        <Font size="15.0"/>
                      </font>
                      <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
                      </padding>
                   </Button>
-                  <Button fx:id="ad_probs" layoutX="77.0" layoutY="1.0" mnemonicParsing="false" onAction="#to_ad_probset" text="PROBLEMSET">
+                  <Button fx:id="ad_probs" layoutX="89.0" layoutY="-1.0" mnemonicParsing="false" onAction="#to_ad_probset"
+                          text="PROBLEMSET">
                      <font>
-                        <Font size="15.0" />
+                        <Font size="15.0"/>
                      </font>
                      <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
                      </padding>
                   </Button>
-                  <Button fx:id="ad_myprob" layoutX="182.0" layoutY="2.0" mnemonicParsing="false" onAction="#to_ad_myprob" text="MY PROBLEMS">
+                  <Button fx:id="ad_manage" layoutX="203.0" mnemonicParsing="false" onAction="#to_ad_manage" text="MANAGE">
                      <font>
-                        <Font size="15.0" />
+                        <Font size="15.0"/>
                      </font>
                      <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
                      </padding>
                   </Button>
-                  <Button fx:id="ad_manage" layoutX="292.0" layoutY="1.0" mnemonicParsing="false" onAction="#to_ad_manage" text="MANAGE">
+                  <Button fx:id="ad_stand" layoutX="360.0" mnemonicParsing="false" onAction="#to_ad_stand"
+                          prefHeight="31.0" prefWidth="105.0" text="STANDINGS">
                      <font>
-                        <Font size="15.0" />
+                        <Font size="15.0"/>
                      </font>
                      <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
                      </padding>
                   </Button>
-                  <Button fx:id="ad_stand" layoutX="433.0" layoutY="1.0" mnemonicParsing="false" onAction="#to_ad_stand" text="STANDINGS">
+                  <Button fx:id="ad_status" layoutX="290.0" layoutY="1.0" mnemonicParsing="false" onAction="#to_ad_status"
+                          text="STATUS">
                      <font>
-                        <Font size="15.0" />
+                        <Font size="15.0"/>
                      </font>
                      <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
                      </padding>
                   </Button>
-                  <Button fx:id="ad_status" layoutX="362.0" layoutY="1.0" mnemonicParsing="false" onAction="#to_ad_status" text="STATUS">
+                  <Button fx:id="ad_clar" layoutX="473.0" layoutY="-1.0" mnemonicParsing="false"
+                          onAction="#to_ad_clar" prefHeight="34.0" prefWidth="131.0" text="CLARIFICATION">
                      <font>
-                        <Font size="15.0" />
+                        <Font size="15.0"/>
                      </font>
                      <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
                      </padding>
                   </Button>
-                  <Button fx:id="ad_clar" layoutX="527.0" layoutY="2.0" mnemonicParsing="false" onAction="#to_ad_clar" text="CLARIFICATION">
+                  <Button id="clicked" fx:id="ad_tut" layoutX="619.0" layoutY="1.0" mnemonicParsing="false" onAction="#to_ad_tut"
+                          prefHeight="31.0" prefWidth="126.0" text="TUTORIAL">
                      <font>
-                        <Font size="15.0" />
+                        <Font size="15.0"/>
                      </font>
                      <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </padding>
-                  </Button>
-                  <Button id="clicked" fx:id="ad_tut" layoutX="653.0" layoutY="1.0" mnemonicParsing="false" onAction="#to_ad_tut" text="TUTORIAL">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                     <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
                      </padding>
                   </Button>
                </children>
