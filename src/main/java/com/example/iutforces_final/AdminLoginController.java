@@ -45,7 +45,7 @@ public class AdminLoginController {
             int itr = 1;
             Integer hsh = pass.hashCode();
             String hash = hsh.toString();
-            //System.out.println(pass);
+            System.out.println(hsh);
             String pass_in_db = ""; // the password that is stored in the db aka the correct password
             while (resultSet.next() && itr > 0) {
                 --itr;

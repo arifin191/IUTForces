@@ -7,8 +7,8 @@ import java.sql.*;
 //import static jdk.jpackage.internal.WixAppImageFragmentBuilder.ShortcutsFolder.Desktop;
 
 public class pdfs {
-    public static void writepdfs() throws SQLException, IOException {
-        File pdfFile = new File("D://sample.pdf");
+    public static void writepdfs(String path) throws SQLException, IOException {
+        File pdfFile = new File(path);
         Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/tst", "root", "123581321345589");
         PreparedStatement pst = null;
         ResultSet rs = null;

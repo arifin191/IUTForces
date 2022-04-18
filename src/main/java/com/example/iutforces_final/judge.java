@@ -10,21 +10,21 @@ import java.util.concurrent.TimeUnit;
 
 public class judge {
     //process builders
-    static  private ProcessBuilder compile;
-    static private ProcessBuilder run;
-    static private ProcessBuilder compare;
+    private ProcessBuilder compile;
+    private ProcessBuilder run;
+    private ProcessBuilder compare;
     //files
-    static private File inputs;
-    static private String filename;
-    static private String pid;
-    static private String totname;
-    static private File expectedOutputs;
-    static private File userOutputs;
-    static private File submittedFile;
+    private File inputs;
+    private String filename;
+    private String pid;
+    private String totname;
+    private File expectedOutputs;
+    private File userOutputs;
+    private File submittedFile;
     //final String folderPath;
-    static private String folderPath;
-    static int submissionID;
-    static long timeTaken;
+    private static String folderPath;
+    int submissionID;
+    long timeTaken;
 
     public judge(String f, String p) {
         submissionID = 714;
@@ -35,7 +35,7 @@ public class judge {
         totname = folderPath + filename;
         //new File(folderPath).mkdir();
     }
-    private static String readfile(String s) throws IOException {
+    private String readfile(String s) throws IOException {
         File file = new File(folderPath +  "io//"+ pid + s);
 
         // Note:  Double backquote is to avoid compiler
@@ -57,7 +57,7 @@ public class judge {
             ret += (char)i;
         return  ret;
     }
-    private static int compileCpp() {
+    private int compileCpp() {
         //String temp=folderPath + filename;
         //submittedFile = new File(totname);
         /*try {
@@ -99,7 +99,7 @@ public class judge {
         }
     }
 
-    private static int runCppC() {
+    private int runCppC() {
         (run = new ProcessBuilder(new String[] { folderPath + pid + ".exe" })).redirectInput(inputs);
         run.redirectOutput(userOutputs);
         try {
@@ -114,6 +114,7 @@ public class judge {
                     p.destroy();
                     timeTaken = (stopTime - startTime) / 1000000L;
                     //System.out.println(timeTaken);
+                    //System.out.println(timeTaken);
                     //System.out.println("PANDAAAAAA");
                     //return -1;
                 }
@@ -124,6 +125,7 @@ public class judge {
             }
             final long stopTime = System.nanoTime();
             timeTaken = (stopTime - startTime) / 1000000L;
+            //System.out.println("HERE" + timeTaken);
             //System.out.println(p.exitValue());
             int x = p.exitValue();
             if (timeTaken > 1000L) {
@@ -140,7 +142,7 @@ public class judge {
         }
     }
 
-    public static int run() {
+    public int run() {
         //System.out.println(this.submission.getLanguage());
         inputs = new File(folderPath + pid + ".in");
         expectedOutputs = new File(folderPath + pid + ".out");
@@ -239,8 +241,15 @@ public class judge {
         //new File(Integer.toString(pid)).delete();
         return -1;
     }
-    public static int main(String[] args) {
-        //compileCpp();
+    public int getverdict() {
         return run();
+    }
+
+    public long gettime() {
+        return timeTaken;
+    }
+    public void main(String[] args) {
+        //compileCpp();
+
     }
 }

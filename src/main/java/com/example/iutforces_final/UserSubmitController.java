@@ -14,6 +14,11 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.ResourceBundle;
 import java.io.PrintWriter;
 import java.io.File;
@@ -86,16 +91,44 @@ public class UserSubmitController implements Initializable {
         stage.setScene(new Scene(root, 800, 720));
     }
 
-    public void setSubmitcode(ActionEvent event)
-    {
+    public String getdate() {
+        Date date = Calendar.getInstance().getTime();
+        DateFormat dateFormat = new SimpleDateFormat("YYYY-MM-dd hh:mm:ss");
+        String strDate = dateFormat.format(date);
+        return strDate;
+    }
+
+    public String getusername(String uid) throws SQLException {
+        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/tst", "root", "123581321345589");
+        Statement statement = connection.createStatement();
+        uid = "'" + uid + "'";
+        ResultSet rs = statement.executeQuery("SELECT * FROM `tst`.`poeple` where name = " + uid);
+        rs.next();
+        return rs.getString("name");
+    }
+
+    public String getpname(String pid) throws SQLException {
+        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/tst", "root", "123581321345589");
+        Statement statement = connection.createStatement();
+        pid = "'" + pid + "'";
+        ResultSet rs = statement.executeQuery("SELECT * FROM `tst`.`problems` where pid = " + pid);
+        rs.next();
+        return rs.getString("pname");
+    }
+
+    public void setSubmitcode(ActionEvent event) throws SQLException {
         String filename = ("temporary//");
-        filename+= problemID.getText();
+        String uid = "abc";
+        filename += uid + "_" + problemID.getText();
         String pid = problemID.getText();
+        String lang = "";
         if(languageChoiceBox.getSelectionModel().getSelectedItem()=="C++")
         {
             filename += ".cpp";
+            lang = "C++";
         }
         else {
+            lang = "C";
             filename += ".c";
         }
         String code= codeEditor.getText();
@@ -113,21 +146,44 @@ public class UserSubmitController implements Initializable {
         catch (IOException e) {
             e.printStackTrace();
         }
-        judge judger = new judge(filename, pid);
-        int verdict = judger.run();
+        System.out.println("PANDAAA");
+        String uname = getusername(uid);
+        System.out.println("PAAAAAANDDDAAAAAA");
+        String pname = getpname(pid);
+        judge judger = new judge(filename, pname);
+        int verdict = judger.getverdict();
+        long tm = judger.gettime();
+        String vstr = "";
+        String dt = getdate();
+        System.out.println(dt);
         if (verdict == -1) {
-            System.out.println("Correct Answer");
+            vstr = "Correct Answer";
         } else if (verdict == 0) {
-            System.out.println("Compilation error");
+            vstr = "Compilation error";
         } else if (verdict == 1) {
-            System.out.println("Time limit exceeded");
+            vstr = "Time limit exceeded";
         } else if (verdict == 2) {
-            System.out.println("Memory limit exceeded");
+            vstr = "Memory limit exceeded";
         } else if (verdict == 3) {
-            System.out.println("Wrong Answer");
-        } else if (verdict == 4) {
-            System.out.println("File missing");
+            vstr = "Wrong Answer";
         }
+        System.out.println(vstr + uname + pname);
+        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/tst", "root", "123581321345589");
+        Statement statement = connection.createStatement();
+
+        String sql =  "INSERT INTO `tst`.`status` (stname, pname, stime, etime, language, verdict) VALUES (?, ?, ?, ?, ?, ?)";
+        PreparedStatement pst = null;
+        pst = connection.prepareStatement(sql);
+        pst.setString(1, uname);
+        pst.setString(2, pname);
+        pst.setString(3, dt);
+        pst.setString(4, String.valueOf(tm));
+        pst.setString(5, lang);
+        pst.setString(6, vstr);
+        System.out.println(pst);
+        pst.executeUpdate();
+        //send stuffs to database
+
 
     }
 
