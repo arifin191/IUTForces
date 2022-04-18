@@ -1,10 +1,5 @@
 package com.example.iutforces_final;
 
-//package com.example.compileandrun;
-
-//
-// Decompiled by Procyon v0.5.36
-//
 
 
 import java.io.*;
@@ -36,7 +31,7 @@ public class judge {
         timeTaken = -1L;
         filename = f;
         pid = p;
-        folderPath = "C://Users//ASUS//IdeaProjects//IUTFORCES_Final//";
+        folderPath = "D://java_proj//IUTForces-main//";
         totname = folderPath + filename;
         //new File(folderPath).mkdir();
     }

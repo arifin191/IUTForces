@@ -37,6 +37,7 @@
             <Label layoutX="118.0" layoutY="355.0" style="-fx-text-fill: #870D0D;" text="Don't have an account yet?" />
             <Hyperlink fx:id="ad_signup_hyp" layoutX="275.0" layoutY="351.0" onAction="#to_ad_signup" style="-fx-text-fill: #870d0d;" text="Sign up!" />
             <Button fx:id="back" layoutX="232.0" layoutY="294.0" mnemonicParsing="false" onAction="#to_home" prefHeight="33.0" prefWidth="80.0" text="Go Back" />
+            <Label fx:id="invalid" alignment="CENTER" layoutX="83.0" layoutY="394.0" prefHeight="19.0" prefWidth="276.0" style="-fx-text-fill: #FF0000;" textFill="#ff0303" />
          </children>
       </AnchorPane>
 <!--      <GlyphCheckBox />

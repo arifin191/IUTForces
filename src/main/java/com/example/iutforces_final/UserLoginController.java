@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -21,7 +22,7 @@ public class UserLoginController {
 
     @FXML
     private TextField uname, pass;
-    private String passw = "12345";
+    private String passw = "123581321345589";
     @FXML
     Button us_login,ad_signup, back;
 
@@ -29,34 +30,57 @@ public class UserLoginController {
     Hyperlink us_signup_hyp;
     @FXML
     private Hyperlink  ad_signup_hyp;
-    public void verify(String uname, String pass) {
+
+    @FXML
+    Label invalid;
+
+    public int verify(String uname, String pass) {
+        int ret = 1;
         try {
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/tst", "root", passw);
             Statement statement = connection.createStatement();
             uname = "'" + uname + "'";
             ResultSet resultSet = statement.executeQuery("select * from `tst`.`poeple` where name = " + uname);
             int itr = 1;
+            Integer hsh = pass.hashCode();
+            String hash = hsh.toString();
             String pass_in_db = ""; // the password that is stored in the db aka the correct password
             while (resultSet.next() && itr > 0) {
                 --itr;
                 pass_in_db = resultSet.getString("password");
             }
-            if (pass_in_db.equals(pass)) {
-                System.out.println("Congratulations, login successful");
+            if (pass.equals("") || uname.equals("")) {
+                ret = 1;
+            } else if (pass_in_db.equals(hash)) {
+                ret = 0;
+                //System.out.println("Congratulations, login successful");
             } else {
-                System.out.println("Incorrect pass bitch");
+                ret = 2;
+                //System.out.println("Incorrect pass bitch");
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return ret;
     }
 
     public void user_login(ActionEvent event) throws IOException
     {
-        verify(uname.getText(), pass.getText());
-        Parent root = FXMLLoader.load(getClass().getResource("User-home.fxml"));
-        Stage stage = (Stage) us_login.getScene().getWindow();
-        stage.setScene(new Scene(root, 800, 720));
+        int status = verify(uname.getText(), pass.getText());
+        if(status==0)
+        {
+            Parent root = FXMLLoader.load(getClass().getResource("User-home.fxml"));
+            Stage stage = (Stage) us_login.getScene().getWindow();
+            stage.setScene(new Scene(root, 800, 720));
+        }
+        else if(status==1)
+        {
+            invalid.setText("NO FIELD CAN BE EMPTY!");
+        }
+        else if(status==2)
+        {
+            invalid.setText("WRONG CREDENTIALS!");
+        }
 
     }
 
