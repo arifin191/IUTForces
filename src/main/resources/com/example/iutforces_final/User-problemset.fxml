@@ -82,7 +82,7 @@
             </Group>
          </children>
       </AnchorPane>
-      <TableView fx:id="table_problemset" layoutX="2.0" layoutY="40.0" prefHeight="410.0" prefWidth="738.0" style="-fx-background-color: #870D0D;" AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="40.0">
+      <TableView fx:id="table_problemset" layoutX="2.0" layoutY="40.0" prefHeight="410.0" prefWidth="738.0"  AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="40.0">
         <columns>
           <TableColumn fx:id="col_pid" prefWidth="178.40002745389938" text="Problem ID" />
           <TableColumn fx:id="col_pname" prefWidth="191.19993591308594" text="Problem Name" />

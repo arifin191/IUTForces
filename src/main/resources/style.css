@@ -1,17 +1,22 @@
 .button{
-    -fx-background-color: #818080;
-    -fx-text-fill: white;
+    /*-fx-background-color: #c0392b;*/
+    -fx-background-color: #ffffff;
+    /*-fx-background-color: #2c3e50;*/
+    -fx-text-fill: #2c3e50;
 
 }
 
 .root{
-    -fx-background-color: #870D0D;
+    /*-fx-background-color: #ecf0f1;*/
+    -fx-background-color: #2c3e50;
+
     -fx-font-family: "Open Sauce Sans";
     -fx-font-size: 13;
 }
 
 #clicked{
     -fx-background-color: #222222;
+    -fx-text-fill: #ffffff;
     -fx-padding: 6 ;
 }
 
@@ -25,6 +30,6 @@
 
 #inputfield{
     -fx-background-color: transparent;
-    -fx-border-color: #870D0D;
+    -fx-border-color:  #2c3e50;
     -fx-border-width: 0px 0px 2px 0px;
 }
