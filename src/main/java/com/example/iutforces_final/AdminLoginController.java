@@ -22,7 +22,7 @@ public class AdminLoginController {
 
     @FXML
     private TextField uname, pass;
-    private String passw = "12345";
+    private String passw = "123581321345589";
     @FXML
     Button ad_login,ad_signup, back;
 
@@ -64,7 +64,7 @@ public class AdminLoginController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        ret =0;
+        //ret =0;
         return ret;
     }
 

@@ -22,7 +22,7 @@ public class UserLoginController {
 
     @FXML
     private TextField uname, pass;
-    private String passw = "12345";
+    private String passw = "123581321345589";
     @FXML
     Button us_login,ad_signup, back;
 
@@ -34,6 +34,8 @@ public class UserLoginController {
     @FXML
     Label invalid;
 
+    public static String curname;
+
     public int verify(String uname, String pass) {
         int ret = 1;
         try {
@@ -44,6 +46,7 @@ public class UserLoginController {
             int itr = 1;
             Integer hsh = pass.hashCode();
             String hash = hsh.toString();
+            //System.out.println(hash);
             String pass_in_db = ""; // the password that is stored in the db aka the correct password
             while (resultSet.next() && itr > 0) {
                 --itr;
@@ -53,6 +56,7 @@ public class UserLoginController {
                 ret = 1;
             } else if (pass_in_db.equals(hash)) {
                 ret = 0;
+                curname = uname;
                 //System.out.println("Congratulations, login successful");
             } else {
                 ret = 2;

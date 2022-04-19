@@ -153,12 +153,12 @@ public class judge {
             final FileOutputStream fosOup = new FileOutputStream(expectedOutputs);
             //Path fileName1 = Path.of(folderPath + pid + "given.txt");
             //System.out.println(folderPath+pid+"given.txt");
-            String giveninput = readfile("given.txt");
+            String giveninput = readfile("D:\\java_proj\\IUTForces-main\\io\\" + pid + "_given.txt");
             //System.out.println(giveninput);
             byte[] bagi = giveninput.getBytes();
             fosInp.write(bagi);
             //Path fileName2 = Path.of(folderPath + pid + "expected.txt");
-            String expectedOutput = readfile("expected.txt");
+            String expectedOutput = readfile("D:\\java_proj\\IUTForces-main\\io\\" + pid + "_expected.txt");
             //System.out.println(expectedOutput);
             byte[] baeo = expectedOutput.getBytes();
             fosOup.write(baeo);

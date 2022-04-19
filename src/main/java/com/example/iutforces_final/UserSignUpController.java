@@ -29,7 +29,7 @@ public class UserSignUpController {
     private Label update;
 
 
-    private String passw="12345";
+    private String passw="123581321345589";
 
 
     public void to_us_login_hyp(ActionEvent event) throws IOException
@@ -63,8 +63,8 @@ public class UserSignUpController {
                 Statement statement = connection.createStatement();
                 Integer temp = pass1.hashCode();
                 pass1 = temp.toString();
-                uname = "'" + uname + "'";
-                pass1 = "'" + pass1 + "'";
+                //uname = "'" + uname + "'";
+                //pass1 = "'" + pass1 + "'";
 
                 String st = "insert into `tst`.`poeple` (name,password) values (" + uname + "," + pass1 + ");";
                 //System.out.println(st);

@@ -8,7 +8,7 @@ import java.sql.*;
 //import static jdk.jpackage.internal.WixAppImageFragmentBuilder.ShortcutsFolder.Desktop;
 
 public class pdfs {
-private String passw="12345";
+private String passw="123581321345589";
 private String dname = "";
 private String pname = "";
 private int pid, tl, ml;
@@ -63,7 +63,7 @@ private int pid, tl, ml;
                 Blob blob = rs.getBlob(5);
                 InputStream is = blob.getBinaryStream();
 
-                FileOutputStream fos = new FileOutputStream(System.getProperty("user.dir") + "\\"  + pid + "_" + pname + ".pdf");
+                FileOutputStream fos = new FileOutputStream("D:\\java_proj\\IUTForces-main\\downprobs" + "\\"  + pid + "_" + pname + ".pdf");
 
                // System.out.println("Done");
                 int b = 0;

@@ -6,6 +6,8 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="538.0" prefWidth="738.0" stylesheets="@../../../style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.iutforces_final.AdminStandingController">
    <children>
       <AnchorPane id="topbar" layoutX="-2.0" prefHeight="40.0" prefWidth="744.0" stylesheets="@../../../style.css">
@@ -78,5 +80,12 @@
             </Group>
          </children>
       </AnchorPane>
+      <TableView fx:id="table_rank" layoutY="40.0" prefHeight="496.0" prefWidth="738.0">
+         <columns>
+            <TableColumn fx:id="col_rank" prefWidth="217.6000091433525" text="Ranking" />
+            <TableColumn fx:id="col_name" prefWidth="276.8000030517578" text="StudentID" />
+            <TableColumn fx:id="col_count" prefWidth="243.199951171875" text="Unique Solve Count" />
+         </columns>
+      </TableView>
    </children>
 </AnchorPane>

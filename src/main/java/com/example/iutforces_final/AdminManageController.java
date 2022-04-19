@@ -28,7 +28,7 @@ public class AdminManageController implements Initializable {
     @FXML
     private Button add,del, edit;
 
-    private String passw="12345";
+    private String passw="123581321345589";
     @FXML
     private TableView<Problemset> table_problemset;
 
