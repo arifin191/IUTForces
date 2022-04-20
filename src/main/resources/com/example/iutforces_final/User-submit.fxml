@@ -102,5 +102,10 @@
          </font>
       </TextArea>
       <Button fx:id="submitcode" layoutX="340.0" layoutY="476.0" mnemonicParsing="false" onAction="#setSubmitcode" text="SUBMIT" />
+      <Label fx:id="verdictLabel" alignment="CENTER" layoutX="144.0" layoutY="516.0" prefHeight="39.0" prefWidth="508.0" textFill="#fcfcfc">
+         <font>
+            <Font name="System Italic" size="24.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

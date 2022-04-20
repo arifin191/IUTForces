@@ -30,13 +30,13 @@
          <children>
             <TextField id="inputfield" fx:id="name_field" layoutX="140.0" layoutY="183.0" promptText="Username" />
             <PasswordField id="inputfield" fx:id="pass_field" layoutX="140.0" layoutY="222.0" promptText="Password" />
-            <Button fx:id="signup" layoutX="118.0" layoutY="332.0" mnemonicParsing="false" onAction="#setSignup" prefHeight="36.0" prefWidth="80.0" text="Sign Up" />
+            <Button fx:id="signup" style="-fx-background-color: #2c3e50; -fx-text-fill: #ecf0f1;"  layoutX="118.0" layoutY="332.0" mnemonicParsing="false" onAction="#setSignup" prefHeight="36.0" prefWidth="80.0" text="Sign Up" />
 <!--            <FontAwesomeIconView fill="#870d0d" glyphName="USER" layoutX="99.0" layoutY="207.0" size="20" />
             <FontAwesomeIconView fill="#870d0d" glyphName="KEY" layoutX="99.0" layoutY="248.0" size="20" />
             <FontAwesomeIconView fill="#870d0d" glyphName="USERS" layoutX="171.0" layoutY="134.0" size="40" />-->
             <Label layoutX="118.0" layoutY="394.0" style="-fx-text-fill: #870D0D;" text="Already have an account?" />
             <Hyperlink fx:id="us_login_hyp" layoutX="276.0" layoutY="390.0" onAction="#to_us_login_hyp" style="-fx-text-fill: #870d0d;" text="Log in!" />
-            <Button fx:id="back" layoutX="232.0" layoutY="333.0" mnemonicParsing="false" onAction="#to_home" prefHeight="33.0" prefWidth="80.0" text="Go Back" />
+            <Button style="-fx-background-color: #2c3e50; -fx-text-fill: #ecf0f1;" fx:id="back" layoutX="232.0" layoutY="333.0" mnemonicParsing="false" onAction="#to_home" prefHeight="33.0" prefWidth="80.0" text="Go Back" />
             <PasswordField id="inputfield" fx:id="conpass_field" layoutX="141.0" layoutY="270.0" promptText="Confirm Password" />
             <Label fx:id="update" alignment="CENTER" layoutX="133.0" layoutY="444.0" prefHeight="19.0" prefWidth="184.0" style="-fx-text-fill: red;" />
          </children>

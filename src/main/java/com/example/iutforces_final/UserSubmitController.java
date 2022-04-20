@@ -6,10 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -37,6 +34,9 @@ public class UserSubmitController implements Initializable {
 
     @FXML
     private TextArea codeEditor;
+
+    @FXML
+    private Label verdictLabel;
 
     public void to_us_home(ActionEvent event) throws IOException
     {
@@ -103,19 +103,23 @@ public class UserSubmitController implements Initializable {
     public String getusername(String uid) throws SQLException {
         Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/tst", "root", "123581321345589");
         Statement statement = connection.createStatement();
-        uid = "'" + uid + "'";
+        //uid = "'" + uid + "'";
         ResultSet rs = statement.executeQuery("SELECT * FROM `tst`.`poeple` where name = " + uid);
         rs.next();
         return rs.getString("name");
     }
 
     public String getpname(String pid) throws SQLException {
-        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/tst", "root", "123581321345589");
-        Statement statement = connection.createStatement();
-        pid = "'" + pid + "'";
-        ResultSet rs = statement.executeQuery("SELECT * FROM `tst`.`problemset` where problemID = " + pid);
-        rs.next();
-        return rs.getString("problem_name");
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/tst", "root", "123581321345589");
+            Statement statement = connection.createStatement();
+            //pid = "'" + pid + "'";
+            ResultSet rs = statement.executeQuery("SELECT * FROM `tst`.`problemset` where problemID = " + pid);
+            rs.next();
+            return rs.getString("problem_name");
+        } catch (Exception e){
+            return "-2";
+        }
     }
 
     public void setSubmitcode(ActionEvent event) throws SQLException {
@@ -152,13 +156,17 @@ public class UserSubmitController implements Initializable {
         //String uname = getusername(uid);
         //System.out.println("PAAAAAANDDDAAAAAA");
         String pname = getpname(pid);
-        judge judger = new judge(filename, pname);
+        //System.out.println("THE NAME IS :" + pname);
+        judge judger = new judge(filename, pname, pid);
         int verdict = judger.getverdict();
         long tm = judger.gettime();
         String vstr = "";
         String dt = getdate();
-        System.out.println(dt);
-        if (verdict == -1) {
+        //System.out.println(dt);
+        if (pname.equals("-2")) {
+            verdict = 100;
+            vstr = "No problem with given ID";
+        } else if (verdict == -1) {
             vstr = "Correct Answer";
         } else if (verdict == 0) {
             vstr = "Compilation error";
@@ -169,21 +177,27 @@ public class UserSubmitController implements Initializable {
         } else if (verdict == 3) {
             vstr = "Wrong Answer";
         }
-        System.out.println(vstr + uid + pname);
-        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/tst", "root", "123581321345589");
-        Statement statement = connection.createStatement();
 
-        String sql =  "INSERT INTO `tst`.`status` (stname, pname, stime, etime, language, verdict) VALUES (?, ?, ?, ?, ?, ?)";
-        PreparedStatement pst = null;
-        pst = connection.prepareStatement(sql);
-        pst.setString(1, uid);
-        pst.setString(2, pname);
-        pst.setString(3, dt);
-        pst.setString(4, String.valueOf(tm));
-        pst.setString(5, lang);
-        pst.setString(6, vstr);
-        //System.out.println(pst);
-        pst.executeUpdate();
+        verdictLabel.setText(vstr);
+
+        if (verdict != 100) {
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/tst", "root", "123581321345589");
+            Statement statement = connection.createStatement();
+
+            String sql =  "INSERT INTO `tst`.`status` (stname, pname, stime, etime, language, verdict) VALUES (?, ?, ?, ?, ?, ?)";
+            PreparedStatement pst = null;
+            pst = connection.prepareStatement(sql);
+            pst.setString(1, uid);
+            pst.setString(2, pname);
+            pst.setString(3, dt);
+            pst.setString(4, String.valueOf(tm));
+            pst.setString(5, lang);
+            pst.setString(6, vstr);
+            //System.out.println(pst);
+            pst.executeUpdate();
+        }
+        //System.out.println(vstr + uid + pname);
+
         //send stuffs to database
 
 

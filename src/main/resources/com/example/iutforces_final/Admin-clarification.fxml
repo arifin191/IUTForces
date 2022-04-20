@@ -6,6 +6,8 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.Label?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="538.0" prefWidth="738.0" stylesheets="@../../../style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.iutforces_final.AdminClarificationController">
    <children>
       <AnchorPane id="topbar" layoutX="-2.0" prefHeight="40.0" prefWidth="744.0" stylesheets="@../../../style.css">
@@ -70,5 +72,23 @@
             </children>
          </Group>
       </AnchorPane>
+      <TextArea fx:id="msg" layoutX="5.0" layoutY="545.0" prefHeight="58.0" prefWidth="727.0" />
+      <Button fx:id="sendbtn" layoutX="343.0" layoutY="610.0" mnemonicParsing="false" onAction="#send_message" text="SEND" />
+      <Label fx:id="msg1" layoutX="48.0" layoutY="84.0" prefHeight="31.0" prefWidth="579.0" textFill="#efeaea">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Label fx:id="msg2" layoutX="48.0" layoutY="151.0" prefHeight="31.0" prefWidth="579.0" textFill="#efeaea">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Label fx:id="msg3" layoutX="48.0" layoutY="253.0" prefHeight="31.0" prefWidth="579.0" textFill="#efeaea">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="tt" layoutX="5.0" layoutY="50.0" prefHeight="487.0" prefWidth="727.0" />
    </children>
 </AnchorPane>

@@ -3,16 +3,27 @@ package com.example.iutforces_final;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
+import java.sql.*;
+import java.util.ResourceBundle;
+import java.util.Vector;
 
-public class UserTutorialController {
+public class UserTutorialController implements Initializable {
     @FXML
     private Button us_home, us_probs, us_status, us_submission, us_stand, us_submit, us_clar, us_tut, us_login, logout;
+
+    @FXML
+    private TextArea tt;
+
+    private String passw = "123581321345589";
 
     public void to_us_home(ActionEvent event) throws IOException
     {
@@ -69,5 +80,34 @@ public class UserTutorialController {
         stage.setScene(new Scene(root, 800, 720));
     }
 
-    
+    public void show_tut() {
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/tst", "root", passw);
+            Statement statement = connection.createStatement();
+            String st = "select * from `tst`.`tut`";
+            ResultSet rs = statement.executeQuery(st);
+            Vector<String> vc = new Vector<>();
+            String to_show = "";
+            while (rs.next()) {
+                String name = rs.getString("txt");
+                //String message = rs.getString("message");
+                String curmsg = name;
+                to_show = to_show + curmsg + "\n\n";
+            }
+            //msg1.setText(vc.elementAt(0));
+            //msg2.setText(vc.elementAt(1));
+            //msg3.setText(vc.elementAt(2));
+            System.out.println(to_show);
+            tt.setText(to_show);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        show_tut();
+    }
 }

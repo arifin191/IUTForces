@@ -107,7 +107,7 @@ public class UserSubmissionController implements Initializable {
 
     @FXML private void refreshTable() throws SQLException {
         statuslist.clear();
-        query = "select * from  `tst`.`status` where stname ="+UserLoginController.curname;
+        query = "select * from  `tst`.`status` where stname =" + UserLoginController.curname;
         preparedStatement = connection.prepareStatement(query);
         resultSet = preparedStatement.executeQuery();
         //Status status = null;

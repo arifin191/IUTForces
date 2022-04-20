@@ -24,13 +24,15 @@ public class judge {
     //final String folderPath;
     private static String folderPath;
     int submissionID;
+    private String probid;
     long timeTaken;
 
-    public judge(String f, String p) {
+    public judge(String f, String p, String pp) {
         submissionID = 714;
         timeTaken = -1L;
         filename = f;
         pid = p;
+        probid = pp;
         folderPath = "D://java_proj//IUTForces-main//";
         totname = folderPath + filename;
         //new File(folderPath).mkdir();
@@ -153,12 +155,12 @@ public class judge {
             final FileOutputStream fosOup = new FileOutputStream(expectedOutputs);
             //Path fileName1 = Path.of(folderPath + pid + "given.txt");
             //System.out.println(folderPath+pid+"given.txt");
-            String giveninput = readfile("D:\\java_proj\\IUTForces-main\\io\\" + pid + "_given.txt");
+            String giveninput = readfile( probid + "given.txt");
             //System.out.println(giveninput);
             byte[] bagi = giveninput.getBytes();
             fosInp.write(bagi);
             //Path fileName2 = Path.of(folderPath + pid + "expected.txt");
-            String expectedOutput = readfile("D:\\java_proj\\IUTForces-main\\io\\" + pid + "_expected.txt");
+            String expectedOutput = readfile( probid + "expected.txt");
             //System.out.println(expectedOutput);
             byte[] baeo = expectedOutput.getBytes();
             fosOup.write(baeo);
@@ -168,7 +170,7 @@ public class judge {
         }
         catch (FileNotFoundException ex) {
             IOFileState = -1;
-            System.out.println("At Compiler IO file Error: " + ex.getMessage());
+            System.out.println("At Compiler IO file Error NOT FND: " + ex.getMessage());
         }
         catch (IOException ex2) {
             System.out.println("At Compiler IO file Error: " + ex2.getMessage());

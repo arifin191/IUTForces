@@ -65,8 +65,8 @@ public class UserSignUpController {
                 pass1 = temp.toString();
                 //uname = "'" + uname + "'";
                 //pass1 = "'" + pass1 + "'";
-
-                String st = "insert into `tst`.`poeple` (name,password) values (" + uname + "," + pass1 + ");";
+                String z = "0";
+                String st = "insert into `tst`.`poeple` (name,password, isadmin) values (" + uname + "," + pass1 + "," + z + ");";
                 //System.out.println(st);
                 statement.executeUpdate(st);
                 to_home(event);

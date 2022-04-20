@@ -29,8 +29,9 @@ public class UserHomeController implements Initializable {
         try {
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/tst", "root", passw);
             Statement statement = connection.createStatement();
-
+            //String ct = "truncate `tst`.`cinfo`";
             String st = "select * from `tst`.`cinfo`";
+            //statement.executeUpdate(ct);
             ResultSet resultSet = statement.executeQuery(st);
             int itr = 1;
             String cid = "", sid = "", tname = "";

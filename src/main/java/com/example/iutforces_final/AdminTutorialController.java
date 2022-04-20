@@ -6,13 +6,25 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
 
 public class AdminTutorialController {
     @FXML
     private Button save, ad_home, ad_myprob, ad_probs, ad_manage,ad_stand, ad_status, ad_clar, ad_tut, back ;
+
+    @FXML
+    private TextArea tt;
+
+    @FXML
+    private Button btn;
+
+    private String passw = "123581321345589";
 
     public void to_ad_home(ActionEvent event) throws IOException
     {
@@ -68,6 +80,27 @@ public class AdminTutorialController {
         Parent root = FXMLLoader.load(getClass().getResource("Admin-tutorial.fxml"));
         Stage stage = (Stage) ad_tut.getScene().getWindow();
         stage.setScene(new Scene(root, 800, 720));
+    }
+
+    public void send_tut(ActionEvent event)
+    {
+        String to_send = tt.getText();
+        System.out.println(to_send);
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/tst", "root", passw);
+            Statement statement = connection.createStatement();
+            to_send = "'" + to_send + "'";
+            String x = "'" + "1" + "'";
+            //String x = "1";
+            System.out.println(to_send);
+            String st = "insert into `tst`.`tut` (txt,sh) values (" + to_send + "," + x + ");";
+            System.out.println(st);
+            statement.executeUpdate(st);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        //msg.setText("");
+        //showclar();
     }
 
 }

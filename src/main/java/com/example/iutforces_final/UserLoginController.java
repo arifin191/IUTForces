@@ -41,7 +41,7 @@ public class UserLoginController {
         try {
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/tst", "root", passw);
             Statement statement = connection.createStatement();
-            uname = "'" + uname + "'";
+            //uname = "'" + uname + "'";
             ResultSet resultSet = statement.executeQuery("select * from `tst`.`poeple` where name = " + uname);
             int itr = 1;
             Integer hsh = pass.hashCode();
@@ -65,13 +65,19 @@ public class UserLoginController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        ret =0;
+        //ret =0;
         return ret;
     }
 
     public void user_login(ActionEvent event) throws IOException
     {
-        int status = verify(uname.getText(), pass.getText());
+        int status = 0;
+        String nm = uname.getText(), ps = pass.getText();
+        if (nm.equals("") || ps.equals("")) {
+            status = 1;
+        } else {
+            status = verify(uname.getText(), pass.getText());
+        }
         if(status==0)
         {
             Parent root = FXMLLoader.load(getClass().getResource("User-home.fxml"));
